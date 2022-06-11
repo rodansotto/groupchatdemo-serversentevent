@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Group Chat - A Server-Sent Events (SSE) Demo</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="/default.aspx">Home</a></li>
+                    <li role="presentation"><a href="/myprojects.aspx">My Projects</a></li>
+                </ul>
+            </nav>
+            <h4 class="text-muted">Rodan Sotto</h4>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Group Chat - A Server-Sent Events (SSE) Demo</h1>
+                <h6>*Press Connect button to start chatting.  It might take a couple of minutes if you are the first person to connect due to limited server resource.  Press Disconnect button when done.</h6>
+                <h6>**There is a 30 minute limit on this connection after which the server will automatically disconnect.  Please reconnect again if you wish to go back.  Thanks.</h6>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-xs-6">
+                <button id="buttonConnect" type="button" disabled class="btn btn-success">Connect</button>
+                <button id="buttonDisconnect" type="button" class="btn btn-danger" disabled="disabled">Disconnect</button>
+                <h5 style="color:red">(Sorry, chat server unavailable)</h5>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="divMessages" class="well" style="overflow:auto;height:200px;">
+                    <!--<span class="badge">User1:</span>Hello World!!!<br />-->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-9">
+                <textarea id="textMessage" class="form-control" placeholder="Send message" 
+                          rows="2" style="resize:vertical;min-height:34px;" disabled="disabled"></textarea>
+                <span id="spanUserName" class="label label-default"></span>
+            </div>
+            <div class="col-xs-3">
+                <button id="buttonSend" type="button" class="btn btn-primary" disabled="disabled">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    
+    <script src="groupchat_sse.min.js"></script>
+</body>
+</html>
